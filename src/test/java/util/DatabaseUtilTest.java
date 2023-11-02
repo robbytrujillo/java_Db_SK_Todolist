@@ -15,7 +15,6 @@ public class DatabaseUtilTest {
         Connection connection = dataSource.getConnection();
 
         connection.close();
-
         dataSource.close();
     }
 }
