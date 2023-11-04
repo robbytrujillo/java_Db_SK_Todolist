@@ -3,10 +3,7 @@ package repository;
 import entity.Todolist;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class TodoListRepositoryImpl implements TodoListRepository {
 
@@ -20,7 +17,10 @@ public class TodoListRepositoryImpl implements TodoListRepository {
     public Todolist[] getall() {
         String sql = "SELECT id, todo FROM todolist";
 
-        try (Connection connection = dataSource.getConnection()) {
+        try (Connection connection = dataSource.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(sql)
+             ) {
 
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
