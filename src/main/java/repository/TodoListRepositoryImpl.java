@@ -10,8 +10,6 @@ import java.sql.SQLException;
 
 public class TodoListRepositoryImpl implements TodoListRepository {
 
-    public Todolist[] data = new Todolist[10];
-
     private DataSource dataSource;
 
     public TodoListRepositoryImpl(DataSource dataSource) {
@@ -20,7 +18,13 @@ public class TodoListRepositoryImpl implements TodoListRepository {
 
     @Override
     public Todolist[] getall() {
-        return data;
+        String sql = "SELECT id, todo FROM todolist";
+
+        try (Connection connection = dataSource.getConnection()) {
+
+        } catch (SQLException exception) {
+            throw new RuntimeException(exception);
+        }
     }
 
     @Override
