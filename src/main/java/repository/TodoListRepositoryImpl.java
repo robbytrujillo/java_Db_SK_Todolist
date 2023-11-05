@@ -4,6 +4,8 @@ import entity.Todolist;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.util.List;
+import java.util.ArrayList;
 
 public class TodoListRepositoryImpl implements TodoListRepository {
 
@@ -22,6 +24,14 @@ public class TodoListRepositoryImpl implements TodoListRepository {
              ResultSet resultSet = statement.executeQuery(sql)
              ) {
 
+            List<Todolist> list = new ArrayList<>();
+
+            while (resultSet.next()) {
+                Todolist todolist = new Todolist();
+
+                list.add(todolist);
+
+        }
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
         }
