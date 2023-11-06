@@ -35,7 +35,6 @@ public class TodolistRepositoryImplTest {
         System.out.println(todoListRepository.remove(2));
         System.out.println(todoListRepository.remove(3));
         System.out.println(todoListRepository.remove(4));
-
     }
 
     @Test
@@ -49,6 +48,7 @@ public class TodolistRepositoryImplTest {
         for (var todo: todolists) {
             System.out.println(todo.getId() + " : " + todo.getTodo());
         }
+
     }
 
     @AfterEach
