@@ -28,10 +28,14 @@ public class TodoListRepositoryImpl implements TodoListRepository {
 
             while (resultSet.next()) {
                 Todolist todolist = new Todolist();
+                todolist.setId(resultSet.getInt("id"));
+                todolist.setTodo(resultSet.getString("todo"));
 
                 list.add(todolist);
-
         }
+
+        return list.toArray(new Todolist[]{});
+
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
         }
